@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 public class ConsomeGemini {
 
     private static final String API_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=AIzaSyAygCxoKbQQc9XAxL4fnkaM-OqQjBT4rSs";
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:streamGenerateContent?alt=sse&key=*AdicionarKey*;
 
     private static final Pattern RESPOSTA_PATTERN =
             Pattern.compile("\"text\"\\s*:\\s*\"([^\"]+)\"");
@@ -23,15 +23,6 @@ public class ConsomeGemini {
         String respostaJson = enviarRequisicao(jsonRequest);
         return extrairResposta(respostaJson);
     }
-
-    //private static String gerarJsonRequest(String pergunta) {
-      //  String promptFormatado =  pergunta;
-        //return "{\"contents\":[{" +
-          //      "   \"parts\":[{\"text\":\"" + promptFormatado + "\"}]\n" +
-            //     "}]\n" +
-              //  "}";
-    //}
-
     private static String gerarJsonRequest(String pergunta) {
         String promptFormatado = "Question:" + pergunta;
         return "{\n" +
